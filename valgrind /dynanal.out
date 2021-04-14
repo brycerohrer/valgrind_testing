@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction: Why should I care?}{}% 1
+\BOOKMARK [1][-]{section.2}{Static vs. Dynamic Analysis}{}% 2
+\BOOKMARK [1][-]{section.3}{Four Example Programs}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Test.cc}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Test1.cc}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Test2.cc}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Test3.cc}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{It pays to use ``discover''}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Discover on Test.cc}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Discover on Test1.cc}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.3}{Discover on Test2.cc}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.4}{Discover on Test3.cc}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Using valgrind }{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Using valgrind}{section.5}% 14

@@ -1,0 +1,629 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+            "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <TITLE>Discover output - test1.disc</TITLE>
+    <STYLE type="text/css">
+      body {
+        background: #fff;
+        margin:  0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+      }
+      .copyright {
+         margin: 8px 0 0 0;
+         padding: 0 0 0 0 ;
+         font-size: 10px;
+         text-align: center;
+         color: #a3b8cb;
+      }
+      a  { color : #35556B; }
+      a:hover { background-color: #a3b8cb }
+      .details a {color: #35556B;}
+      .warning a {color: #7f7800;}
+      .warning a:hover { background-color: #c5d5a9; }
+      .error .details a:hover {background-color: #c5d5a9; }
+      .details .block_details a:hover {background-color: #a3b8cb; }
+
+      .o_button a {
+        font-family: Arial, Helvetica, FreeSans;
+        font-size: 13px;
+        vertical-align: middle;
+        text-align: center;
+        text-decoration : none;
+        display: block;
+        float:left;
+
+        padding : 2px 1px 2px 1px;
+        margin:   1% 1% 1% 1%;
+        width : 42%;
+        height: 2ex;
+
+        color : white;
+        border-top : 1px solid #c5d5a9;
+        border-left : 1px solid #c5d5a9;
+        border-bottom : 1px solid #7f7800;
+        border-right : 1px solid #7f7800;
+        background : #b2bc00;
+      }
+      .o_button a:hover {
+        color: #fbe249;;
+      }
+      .o_button a:active {
+        position: relative;
+        left: 1px;
+        top: 1px;
+
+        border-top : 1px solid #7f7800;
+        border-left : 1px solid #7f7800;
+        border-bottom : 1px solid #c5d5a9;
+        border-right : 1px solid #c5d5a9;
+      }
+
+      .options {
+        font-family: "Gill Sans MT", "Gill Sans";
+        font-size: 16px;
+        position: fixed;
+        margin: 0px 0px 0px 0px;
+        padding: 30px 0.5em 1% 0.5em;
+        width: 11em;
+        bottom: 0;
+        top: 0px;
+        left: 0px;
+        right: auto;
+        color: white;
+        background-color: #5382a1;
+      }
+      .options fieldset {
+        color: #c5d5a9;
+        border-color: #c5d5a9;
+      }
+      .tooltip {
+        color: #95a579;
+      }
+      .tooltip:hover {
+        position:relative;
+      }
+      .tooltip span {
+        display: none;
+      }
+      .tooltip:hover span {
+        display: block;
+        position: absolute;
+        white-space: nowrap;
+        top:  0.0em;
+        left: 3.5em;
+        background: #ffffbb;
+        font-size: small;
+        color: black;
+        border: 1px solid grey;
+        padding: 1px 5px;
+        z-index: 200;
+      }
+      .odd_filter {
+        float: left;
+        width: 50%;
+      }
+      .even_filter {
+        float: right;
+        width: 50%;
+      }
+      #warnings_filter {
+        display: none;
+      }
+
+      .content {
+        font-family: "Gill Sans MT", "Gill Sans", "Arial";
+        font-size: 16px;
+        position: fixed;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        width: auto;
+        top: 30px;
+        right: 0;
+        bottom: 0;
+        left: 12em;
+        color: #e76f00;
+        background-color: #fff;
+        border-top: 1px solid #5382a1;
+        overflow: auto;
+      }
+      .error {margin: 2% 2% 2% 2%;}
+      .warning {
+         margin: 2% 2% 2% 2%;
+         display: none;
+      }
+      .details {
+        display: none;
+        margin: 1% 1% 1% 1%;
+        padding: 0 1em 1% 2%;
+        border: dotted 1px;
+        color: black;
+        background-color: #a3b8cb;
+      }
+      .block_details {
+        display: none;
+        margin: 1% 1% 1% 1%;
+        padding: 1% 1em 1% 2%;
+        border: 1px;
+        border-style: solid solid solid solid;
+        border-color: #ddd #35556B #35556B #ddd;
+        color: #a3b8cb;
+        background-color: #5382a1;
+      }
+      .warning .details {
+        background-color: #b2bc00;
+      }
+      .warning .details a {
+        color: black;
+      }
+      .stack {
+        margin: 1% 1% 1% 1%;
+        padding: 0;
+        color: black;
+      }
+      .stack a {
+        color: black;
+      }
+      .function { }
+      .source    {
+        font-family: CourierNew;
+        white-space: pre;
+        font-size: 12px;
+        margin: 1% 1% 1% 1%;
+        padding: 0.5ex 2em 0.5ex 2em;
+        border: 1px;
+        border-style: solid dotted dotted solid;
+        border-color: #7f7800 white white #7f7800;
+        color: black;
+        background-color: #c5d5a9;
+        overflow: auto;
+        display: none;
+      }
+      .source em {
+        font-style:normal;
+        background-color:#ed9b4f;
+      }
+      .source_file    {
+        color: #555;
+      }
+      .block    {
+        padding: 1% 1% 1% 1%;
+        margin: 1% 1% 2% 1%;
+        border: dotted 1px;
+        color: white;
+        background-color: #5382a1;
+      }
+      .extra    {
+        font-family: "Gill Sans MT", "Gill Sans", "Arial";
+        white-space: normal;
+        color: #444;
+        margin-left: 1em;
+      }
+      .repeated_event {
+        display: none;
+      }
+      .button1 {
+        width: 46%;
+        margin: 1% 1% 1% 1%;
+      }
+      .summary {
+        position: fixed;
+        margin: 1% 0.5em 1% 0.5em;
+        width: 11em;
+        height: auto;
+        left: 0;
+        bottom: 0;
+      }
+      .options p {
+        line-height: 1em;
+      }
+      .errors_page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      .warnings_page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: none;
+      }
+      .memory_page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 2% 2% 0 2%;
+        display: none;
+      }
+      .leak_summary {
+        color: #35556B;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .menu {
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        width: auto;
+        top: 0;
+        right: 0;
+        left: 12em;
+        position: fixed;
+        background-color: #5382a1;
+        height: 29px;
+        border-bottom: 1px solid #a3b8cb;
+      }
+      .m_button a {
+        font-family: Arial, Helvetica, FreeSans;
+        font-size: 14px;
+        font-weight: bold;
+        vertical-align: bottom;
+        text-align: left;
+        text-decoration : none;
+        display: block;
+        float:left;
+
+        padding : 3px 0 0 15px;
+        margin:   5px 2px 0px 2px;
+        width : 8em;
+        height: 20px;
+
+        border-top: 1px solid white;
+        border-left: 1px solid white;
+        border-right: 1px solid black;
+
+        color: #35556B;
+        background-color : #a3b8cb;
+        -moz-border-radius: 5px 5px 0 0;
+      }
+      .m_button a:focus {
+        outline: none;
+      }
+      div #end    {
+        min-height: 25%;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript">
+       var current_page = 'e';
+       window.onresize = resize;
+       function activateTab(id) {
+         id.style.backgroundColor = "#a3b8cb";
+         id.style.fontWeight = "bold";
+         id.style.paddingTop = "3px";
+         id.style.height = "20px";
+         id.style.marginTop = "5px";
+       }
+       function deactivateTab(id) {
+         id.style.backgroundColor = "#bdbec0";
+         id.style.fontWeight = "normal";
+         id.style.paddingTop = "3px";
+         id.style.height = "18px";
+         id.style.marginTop = "7px";
+       }
+       function moveWarnings() {
+         var num_warnings   = 0;
+         var num_errors   = 0;
+         var filter_types   = new Array();
+         var errors_page   = document.getElementById("errors_page");
+         var warnings_page   = document.getElementById("warnings_page");
+         var nodes = errors_page.childNodes;
+         for(var i = 0; i < nodes.length; i++) {
+           var c = nodes[i];
+           if (c.className) {
+             if (c.className.search("^warning ") != -1) {
+               errors_page.removeChild(c);
+               c.style.display = "block";
+               warnings_page.appendChild(c);
+               num_warnings++;
+               filter_types[c.className] = true;
+             }
+             else if (c.className.search("^error\\b") != -1) {
+               num_errors++;
+               filter_types[c.className] = true;
+             }
+           }
+         }
+         for (var i in filter_types) {
+           var filter_abbrev = i.split(" ")[1];
+           var checkBox = document.getElementById(filter_abbrev);
+           checkBox.checked = 1;
+           checkBox.parentNode.style.color = '#c5d5a9';
+           checkBox.disabled = false;
+         }
+         return [num_warnings, num_errors];
+       }
+       function activatePage(pageName) {
+         var errors_page   = document.getElementById("errors_page");
+         var errors_tab    = document.getElementById("errors_tab");
+         var warnings_page   = document.getElementById("warnings_page");
+         var warnings_tab    = document.getElementById("warnings_tab");
+         var memory_page   = document.getElementById("memory_page");
+         var memory_tab    = document.getElementById("memory_tab");
+         var errors_filter   = document.getElementById("errors_filter");
+         var warnings_filter=document.getElementById("warnings_filter");
+         if (pageName == "errors") {
+           current_page = 'e';
+           activateTab(errors_tab);
+           deactivateTab(warnings_tab);
+           deactivateTab(memory_tab);
+           errors_page.style.display = "block";
+           warnings_page.style.display = "none";
+           if (memory_page) memory_page.style.display = "none";
+           errors_filter.style.display = "block";
+           warnings_filter.style.display = "none";
+         } else if (pageName == "warnings") {
+           current_page = 'w';
+           deactivateTab(errors_tab);
+           activateTab(warnings_tab);
+           deactivateTab(memory_tab);
+           errors_page.style.display = "none";
+           warnings_page.style.display = "block";
+           if (memory_page) memory_page.style.display = "none";
+           errors_filter.style.display = "none";
+           warnings_filter.style.display = "block";
+         } else if (pageName == "memory") {
+           current_page = 'l';
+           deactivateTab(errors_tab);
+           deactivateTab(warnings_tab);
+           activateTab(memory_tab);
+           errors_page.style.display = "none";
+           warnings_page.style.display = "none";
+           if (memory_page) memory_page.style.display = "block";
+           errors_filter.style.display = "none";
+           warnings_filter.style.display = "none";
+         }
+       }
+       function changeState(id) {
+         d=document.getElementById(id);
+         if (d.style.display == 'none' || d.style.display == "") {
+           d.style.display = 'block';
+         } else {
+           d.style.display = 'none';
+         }
+       }
+       function switchClassDisplayTo(tagName, className, state) {
+         var all = document.getElementsByTagName(tagName);
+         for(var i = 0; i < all.length; i++) {
+           var d = all[i];
+           if (d.className
+            && (d.className.search("^"+className+"\\b")!= -1)) {
+             d.style.display = state;
+           }
+         }
+       }
+       function switchIdPrefixDisplayTo(idPrefix, state) {
+         for(var i = 1; ; i++) {
+           d = document.getElementById(idPrefix + i);
+           if (d == null) break;
+           d.style.display = state;
+         }
+       }
+       function changeTagWithClass(tagName, className, emptyMeansVisible) {
+         var all = document.getElementsByTagName(tagName);
+         if (emptyMeansVisible == null)
+           emptyMeansVisible = true;
+         for(var i = 0; i < all.length; i++) {
+           var d = all[i];
+           if (d.className
+            && (d.className.search("^"+className+"\\b")!= -1)) {
+             if (d.style.display == 'none' || (d.style.display == '' && !emptyMeansVisible)) {
+               if (tagName == 'span') {
+                 d.style.display = 'inline';
+               } else {
+                 d.style.display = 'block';
+               }
+             } else {
+               d.style.display = 'none';
+             }
+           }
+         }
+       }
+       function changeChildrenWithClass(parentName, className) {
+         for (var child= document.getElementById(parentName).firstChild;
+              child != null; child = child.nextSibling) {
+           if (child.className &&
+               child.className == className) {
+             if ( child.style.display == 'none') {
+                 child.style.display = child.nodeName == 'DIV' ? 'block' : 'inline';
+             } else {
+               child.style.display = 'none';
+             }
+           }
+         }
+       }
+       function fillRepeated() {
+         if (!document.getElementById("end")) {
+           var nodes = document.getElementById('content').childNodes;
+           for (var j = nodes.length - 1; j >= 0; j-= 1) {
+             var c = nodes[j];
+             if (c.nodeType == Node.COMMENT_NODE) {
+               if (c.nodeValue.length == 32) {
+                 var event = document.getElementById(c.nodeValue);
+                 if (!event.firstChild) {
+                   var repeats =' (repeats '+nodes[j+1].nodeValue+' times)';
+                   event.appendChild(document.createTextNode(repeats));
+                 }
+               }
+             }
+           }
+         } else {
+           var s = document.getElementById('repeated_events');
+           if (s != null) {
+             var all = s.childNodes;
+             for(var i = 0; i < all.length; i++) {
+               var s = all[i];
+               if (s.nodeName == 'P') {
+                 var edata = s.id.split(":"); 
+                 var event = document.getElementById(edata[0]);
+                 var repeats =' (repeats '+edata[1]+' times)';
+                 event.appendChild(document.createTextNode(repeats));
+               }
+             }
+           }
+         }
+       }
+       function fillSummary(num_warnings, num_errors) {
+         document.getElementById("sum_errors").appendChild(
+             document.createTextNode(num_errors));
+         document.getElementById("sum_warnings").appendChild(
+             document.createTextNode(num_warnings));
+
+         var leaked_bytes = document.getElementById("leaked_bytes");
+         if (leaked_bytes == null) {
+           leaked_bytes = "N/A";
+         } else {
+           leaked_bytes = leaked_bytes.firstChild;
+           if (leaked_bytes == null) {
+             leaked_bytes = "0B";
+           } else if (leaked_bytes.nodeValue == 1) {
+             leaked_bytes = "1B";
+           } else {
+             leaked_bytes = leaked_bytes.nodeValue + "B";
+           }
+         }
+         document.getElementById("sum_leaks").appendChild(
+             document.createTextNode(leaked_bytes));
+       }
+       function init() {
+         document.body.style.cursor = "wait";
+         resize();
+         var counts = moveWarnings();
+         activatePage("errors");
+         fillRepeated();
+         fillSummary(counts[0], counts[1]);
+         document.body.style.cursor = "default";
+       }
+       function resize() {
+         var width_delta = window.innerWidth < 700 ? 700 - window.innerWidth: 0;
+         var height_delta = window.innerHeight < 700 ? 700 - window.innerHeight : 0;
+         if (width_delta > 0 || height_delta > 0)
+           window.resizeBy(width_delta, height_delta);
+       }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="javascript:init()">
+    <div class="options"> 
+    <fieldset>
+    <legend>All Details</legend>
+      <div class="o_button">
+      <a onclick="javascript:switchIdPrefixDisplayTo(current_page + 'details', 'block')">SHOW</a>
+      <a style="float:right" onclick="javascript:switchIdPrefixDisplayTo(current_page + 'details', 'none')">HIDE</a>
+      </div>
+    </fieldset>
+    <P>
+    <fieldset>
+    <legend>All Source</legend>
+      <div class="o_button">
+      <a onclick="javascript:switchClassDisplayTo('div', 'source', 'block')">SHOW</a>
+      <a style="float:right" onclick="javascript:switchClassDisplayTo('div', 'source', 'none')">HIDE</a>
+      </div>
+    </fieldset>
+    <P>
+    <fieldset>
+    <legend>All Blocks</legend>
+      <div class="o_button">
+      <a onclick="javascript:switchIdPrefixDisplayTo(current_page + 'bd', 'block')">SHOW</a>
+      <a style="float:right" onclick="javascript:switchIdPrefixDisplayTo(current_page + 'bd', 'none')">HIDE</a>
+      </div>
+    </fieldset>
+    <P>
+    <div id="errors_filter"><fieldset>
+    <legend>Show Errors</legend>
+    <div class="odd_filter tooltip"><input type="checkbox" id="ABR" disabled onclick="javascript:changeChildrenWithClass('errors_page','error ABR')"/>ABR<span>beyond Array Bounds Read</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="ABW" disabled onclick="javascript:changeChildrenWithClass('errors_page','error ABW')"/>ABW<span>beyond Array Bounds Write</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="BFM" disabled onclick="javascript:changeChildrenWithClass('errors_page','error BFM')"/>BFM<span>Bad Free Memory</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="BRP" disabled onclick="javascript:changeChildrenWithClass('errors_page','error BRP')"/>BRP<span>Bad Realloc address Parameter</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="CGB" disabled onclick="javascript:changeChildrenWithClass('errors_page','error CGB')"/>CGB<span>Corrupted Guard Block</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="DFM" disabled onclick="javascript:changeChildrenWithClass('errors_page','error DFM')"/>DFM<span>Double Freeing Memory</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="FMR" disabled onclick="javascript:changeChildrenWithClass('errors_page','error FMR')"/>FMR<span>Freed Memory Read</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="FMW" disabled onclick="javascript:changeChildrenWithClass('errors_page','error FMW')"/>FMW<span>Freed Memory Write</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="FRP" disabled onclick="javascript:changeChildrenWithClass('errors_page','error FRP')"/>FRP<span>Freed Realloc Parameter</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="IMR" disabled onclick="javascript:changeChildrenWithClass('errors_page','error IMR')"/>IMR<span>Invalid Memory Read</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="IMW" disabled onclick="javascript:changeChildrenWithClass('errors_page','error IMW')"/>IMW<span>Invalid Memory Write</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="PIR" disabled onclick="javascript:changeChildrenWithClass('errors_page','error PIR')"/>PIR<span>Partially Initialized Read</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="SBR" disabled onclick="javascript:changeChildrenWithClass('errors_page','error SBR')"/>SBR<span>beyond Stack Bounds Read</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="SBW" disabled onclick="javascript:changeChildrenWithClass('errors_page','error SBW')"/>SBW<span>beyond Stack Bounds Write</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="UAR" disabled onclick="javascript:changeChildrenWithClass('errors_page','error UAR')"/>UAR<span>UnAllocated memory Read</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="UAW" disabled onclick="javascript:changeChildrenWithClass('errors_page','error UAW')"/>UAW<span>UnAllocated memory Write</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="UMR" disabled onclick="javascript:changeChildrenWithClass('errors_page','error UMR')"/>UMR<span>Uninitialized Memory Read</span></div>
+    </fieldset></div>
+    <p>
+    <div id="warnings_filter"><fieldset>
+    <legend>Show Warnings</legend>
+    <div class="odd_filter tooltip"><input type="checkbox" id="AZS" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning AZS')"/>AZS<span>Allocating Zero Size</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="NAR" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning NAR')"/>NAR<span>Non-Annotated Read</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="NAW" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning NAW')"/>NAW<span>Non-Annotated Write</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="SMR" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning SMR')"/>SMR<span>Speculative Memory Read</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="UFR" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning UFR')"/>UFR<span>Unknown stack Frame Read</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="UFW" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning UFW')"/>UFW<span>Unknown stack Frame Write</span></div>
+    <div class="odd_filter tooltip"><input type="checkbox" id="USR" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning USR')"/>USR<span>Unknown Status while Reading</span></div>
+    <div class="even_filter tooltip"><input type="checkbox" id="USW" disabled onclick="javascript:changeChildrenWithClass('warnings_page','warning USW')"/>USW<span>Unknown Status while Writing</span></div>
+    </fieldset></div>
+    <p>
+    <div class="summary"><fieldset id="summary">
+    <legend>Summary</legend>
+    <p>Errors: <span id="sum_errors"></span>
+    <p>Warnings: <span id="sum_warnings"></span>
+    <p>Leaked: <span id="sum_leaks"></span>
+    </fieldset><div class="copyright">
+Copyright &copy 2009, 2010, Oracle and/or its affiliates. All rights reserved.
+    </div>
+    </div>
+
+    <div class="menu">
+    <div class="m_button">
+    <a href="javascript:activatePage('errors')" id="errors_tab">Errors</a>
+    <a href="javascript:activatePage('warnings')" id="warnings_tab" style="background-color:#bdbec0;font-weight:normal;padding-top:3px;">Warnings</a>
+    <a href="javascript:activatePage('memory')" id="memory_tab" style="background-color:#bdbec0;font-weight:normal;padding-top:3px;">Memory Leaks</a>
+    </div>
+    </div>
+
+    <div class="content" id="content">
+
+    <div class="warnings_page" id="warnings_page">
+    </div>
+
+    <div class="errors_page" id="errors_page">
+</div>
+<div class="memory_page" id="memory_page">
+<div class="leak_summary">
+
+1 block at 1 location left allocated on heap with total size of <span id="leaked_bytes">40</span> bytes
+<p>29 blocks at 27 locations were filtered from report (total size of 123798 bytes)</p>
+</div><p>
+<a href="javascript:changeState('lbd1')">1 block with total size of 40 bytes
+</a>
+<div class="block_details" id="lbd1">
+<div class="stack">
+<div class="function">	void*operator new(unsigned) + 0x36 
+</div>
+<div class="function">	__rwstd::facet_imp*__rwstd::facet_maker&lt;std::codecvt&lt;char,char,__mbstate_t&gt; &gt;::maker_func(int,const char*,unsigned) + 0x159 
+</div>
+<div class="function">	__rwstd::facet_imp*std::locale::__make_explicit(const std::locale::id&amp;,bool,int,__rwstd::facet_imp*(*)(int,const char*,unsigned))const + 0x108 
+</div>
+<div class="function">	int std::basic_filebuf&lt;char,std::char_traits&lt;char&gt; &gt;::overflow(int) + 0x127 
+</div>
+<div class="function">	int std::basic_filebuf&lt;char,std::char_traits&lt;char&gt; &gt;::sync() + 0x1c8 
+</div>
+<div class="function">	std::basic_ostream&lt;char,std::char_traits&lt;char&gt; &gt;&amp;std::operator&lt;&lt;(std::basic_ostream&lt;char,std::char_traits&lt;char&gt; &gt;&amp;,const char*) + 0x5f3 
+</div>
+<div class="function"><a href="javascript:changeState('source1')">	void foo(bool) + 0x9e </a>
+<span class="source_file"> (line ~9) in <a href="/home/juedes/Wiley/test1.cc">"test1.cc"</a></span><div class="source" id="source1"> 6:      if (x) {
+ 7:        cout &lt;&lt; "This worked" &lt;&lt; endl;
+ 8:      } else {
+<em> 9:        cout &lt;&lt; "Oops this didn't work "&lt;&lt; endl;</em>
+10:      }
+11:    
+12:    }
+</div>
+</div>
+</div>
+</div>
+<p>
+<span class="repeated_event" id="repeated_events"></span></div>
+<div id="end"></div>
+</div>
+</BODY>
+</HTML>
